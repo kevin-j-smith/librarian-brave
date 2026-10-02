@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "librarian-brave"
+dynamic = ["version"]
+description = "Brave Search API backend for librarian's research loop"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Kevin J. Smith" }]
+keywords = ["librarian", "brave", "search", "research", "plugin"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Plugins",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+# librarian itself is deliberately NOT listed, as in librarian-searxng: this
+# plugin is installed into an existing librarian environment, and the PyPI
+# project named `librarian` is an unrelated library.
+dependencies = [
+    "httpx>=0.27",
+]
+
+[project.urls]
+Homepage = "https://github.com/kevin-j-smith/librarian-brave"
+Source = "https://github.com/kevin-j-smith/librarian-brave"
+Issues = "https://github.com/kevin-j-smith/librarian-brave/issues"
+Changelog = "https://github.com/kevin-j-smith/librarian-brave/blob/main/CHANGELOG.md"
+librarian = "https://github.com/kevin-j-smith/librarian"
+
+[project.entry-points."librarian.search_backends"]
+brave = "librarian_brave.backend:BraveBackend"
+
+[tool.hatch.version]
+path = "src/librarian_brave/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/",
+    "tests/",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/librarian_brave"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

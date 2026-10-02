@@ -1,0 +1,25 @@
+# Build and test output
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Local settings and secrets: API keys live in librarian's .env, never here
+.env
+.env.*
+*.local.*
+*.log
+
+# Editors and OS files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

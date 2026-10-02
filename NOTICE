@@ -1,0 +1,7 @@
+librarian-brave
+Copyright (c) 2026 Kevin J. Smith (https://github.com/kevin-j-smith/librarian-brave)
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This package calls the Brave Search API over HTTP with your own API key. It
+contains no Brave code; results are subject to Brave's API terms.
